@@ -1,12 +1,8 @@
-import 'package:dart_concepts/dart_concepts.dart' as dart_concepts;
-
 /// FUNCTIONS ***********************************************
 ///
 ///the main function of every dart program is main()
 void main(List<String> arguments) {
-  //hello world default example
-  print('Hello world: ${dart_concepts.calculate()}!');
-
+  
   //positioned parameters
   printName('Phil');
 
@@ -29,6 +25,19 @@ void main(List<String> arguments) {
 
   //custom function using callback function
   useCallback((concatenate('Philippe', 'B')));
+
+  //custom function using an instantly invoked function
+  useCallbackNow((){
+    return 'Hey World!';
+  });
+
+  ///inner function
+  ///since applyMultiplier return a function that requires parameters too, we assign the function to quadruple
+  ///then we recall quadruple with an argument, in our case, 2.
+  Function quadruple = applyMultiplier(4);
+  int answer = quadruple(2);
+  print('The quadruple of 2 is $answer');
+
 }
 
 ///positioned parameters
@@ -93,7 +102,21 @@ Function concatenate = (String a, String b) {
 };
 
 ///anonymous functions and callbacks
-///we use a callback function inside a declared function
+///we use a callback function returning a string inside a declared function
 void useCallback(String callback) {
   print(callback);
 }
+
+///callback function
+void useCallbackNow(Function callback){
+  print(callback.call());
+}
+
+///inner functions
+///a function returning another function
+Function applyMultiplier(num multiplier){
+  return (num value) {
+    return value * multiplier;
+  };
+}
+
