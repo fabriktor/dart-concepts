@@ -1,2 +1,4 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+Some basic Dart concepts.
+Run individual files with dart 'relative/path/filename.dart'
+All files are located in bin folder.
+
