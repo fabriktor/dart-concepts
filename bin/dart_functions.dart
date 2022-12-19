@@ -2,7 +2,6 @@
 ///
 ///the main function of every dart program is main()
 void main(List<String> arguments) {
-  
   //positioned parameters
   printName('Phil');
 
@@ -27,7 +26,7 @@ void main(List<String> arguments) {
   useCallback((concatenate('Philippe', 'B')));
 
   //custom function using an instantly invoked function
-  useCallbackNow((){
+  useCallbackNow(() {
     return 'Hey World!';
   });
 
@@ -37,7 +36,6 @@ void main(List<String> arguments) {
   Function quadruple = applyMultiplier(4);
   int answer = quadruple(2);
   print('The quadruple of 2 is $answer');
-
 }
 
 ///positioned parameters
@@ -108,15 +106,14 @@ void useCallback(String callback) {
 }
 
 ///callback function
-void useCallbackNow(Function callback){
+void useCallbackNow(Function callback) {
   print(callback.call());
 }
 
 ///inner functions
 ///a function returning another function
-Function applyMultiplier(num multiplier){
+Function applyMultiplier(num multiplier) {
   return (num value) {
     return value * multiplier;
   };
 }
-
